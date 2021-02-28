@@ -21,5 +21,7 @@
 
 ## Helpful Links
 [MindCub3r Build Instructions](.README/MindCub3r-Ed-v1p1.pdf)
+
 [ev3dev Information Site](https://www.ev3dev.org/)
+
 [Getting started with ev3dev Python](https://github.com/ev3dev/ev3dev-lang-python)
