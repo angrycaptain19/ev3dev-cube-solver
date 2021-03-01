@@ -2,7 +2,7 @@
 
 from time import sleep
 
-from ev3dev2.motor import LargeMotor, OUTPUT_A, OUTPUT_B, SpeedPercent
+from ev3dev2.motor import LargeMotor, MediumMotor, OUTPUT_A, OUTPUT_B, OUTPUT_C, SpeedPercent
 from ev3dev2.sensor import INPUT_2
 from ev3dev2.sensor.lego import InfraredSensor
 from ev3dev2.led import Leds
@@ -13,14 +13,22 @@ leds = Leds()
 sound = Sound()
 rotatingPlatform = LargeMotor(OUTPUT_B)
 arm = LargeMotor(OUTPUT_A)
+colorMotor = MediumMotor(OUTPUT_C)
 
-count = 0
+colorMotor.on_for_degrees(SpeedPercent(40), -360)
+sleep(0.5)
+colorMotor.on_for_degrees(SpeedPercent(40), 80)
+sleep(0.5)
 
-sound.beep()
+rotatingPlatform.on_for_degrees(SpeedPercent(75), 270)
+rotatingPlatform.on_for_degrees(SpeedPercent(75), 270)
+rotatingPlatform.on_for_degrees(SpeedPercent(75), 270)
+rotatingPlatform.on_for_degrees(SpeedPercent(75), 270)
 
+sleep(0.5)
+colorMotor.on_for_degrees(SpeedPercent(40), 280)
 
-
-
+'''count = 0
 
 while count < 150:
     distance = ir.value()
@@ -29,8 +37,6 @@ while count < 150:
         count = count + 1
 
     sleep(0.01)
-
-sound.speak('Starting rotation')
 
 arm.position = 0
 arm.on_for_degrees(SpeedPercent(20), 90)
@@ -67,4 +73,4 @@ rotatingPlatform.on_for_degrees(SpeedPercent(75), -30)
 
 sleep(0.1)
 arm.on_for_degrees(SpeedPercent(20), -90)
-sound.beep()
+'''
